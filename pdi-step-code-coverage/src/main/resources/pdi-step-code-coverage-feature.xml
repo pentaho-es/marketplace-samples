@@ -1,0 +1,7 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
+
+  <feature name="pdi-step-code-coverage-feature" version="1.0-SNAPSHOT">
+    <bundle>mvn:com.example/pdi-step-code-coverage/1.0-SNAPSHOT</bundle>
+  </feature>
+
+</features>
