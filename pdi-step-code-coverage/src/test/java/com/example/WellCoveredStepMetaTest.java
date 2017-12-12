@@ -27,9 +27,6 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-/**
- *
- */
 public class WellCoveredStepMetaTest {
 
 	@Mock
@@ -87,17 +84,10 @@ public class WellCoveredStepMetaTest {
 		meta.setDefault();
 	}
 
-	/*
-	 * List<CheckResultInterface> remarks, TransMeta transMeta, StepMeta stepMeta,
-	 * RowMetaInterface prev, String input[], String output[], RowMetaInterface
-	 * info, VariableSpace space, Repository repository, IMetaStore metaStore
-	 */
-
 	@Test
 	public void testCheck() {		
 		List<CheckResultInterface> remarks = new ArrayList<CheckResultInterface>();
 
-		//StepMeta stepMeta = Mockito.mock(StepMeta.class);
 		RowMetaInterface prev = Mockito.mock(RowMetaInterface.class);
 		String[] input = { "Some Input Step" };
 		String[] output = null;
@@ -142,5 +132,4 @@ public class WellCoveredStepMetaTest {
 	public void testGetFields() throws KettleStepException {
 	  meta.getFields( info, "someName", null, stepMeta, space, repository, metastore);
 	}
-	 	
 }

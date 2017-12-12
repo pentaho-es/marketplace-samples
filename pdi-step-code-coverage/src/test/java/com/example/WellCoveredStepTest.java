@@ -28,8 +28,6 @@ public class WellCoveredStepTest {
 
   WellCoveredStep step;
   
-  //private StepMockHelper<WellCoveredStepMeta, WellCoveredStepData> stepMockHelper;
-  
   private StepMockHelper<WellCoveredStepMeta, WellCoveredStepData> stepMockHelper;
   
   @Mock
@@ -51,23 +49,16 @@ public class WellCoveredStepTest {
   @Before
   public void before() {
     MockitoAnnotations.initMocks(this);
-    // This is repeated
+
     when( meta.getName() ).thenReturn( "myStep" );
     when(transMeta.findStep( "myStep" )).thenReturn(meta);
 
-    
     String[] fieldNames = new String[] {"TEST"};
     stepMockHelper = new StepMockHelper<WellCoveredStepMeta, WellCoveredStepData>( "TEST", WellCoveredStepMeta.class, WellCoveredStepData.class );
     when( stepMockHelper.logChannelInterfaceFactory.create( any(), any( LoggingObjectInterface.class ) ) ).thenReturn( stepMockHelper.logChannelInterface );
     when( stepMockHelper.trans.isRunning() ).thenReturn( true );
     when( stepMockHelper.trans.getSocketRepository() ).thenReturn( mock( SocketRepository.class ) );
-    //when( stepMockHelper.initStepMetaInterface.getFieldName() ).thenReturn( fieldNames );
-    //int[] types = new int[stepMockHelper.initStepMetaInterface.getFieldName().length];
-    //when( stepMockHelper.initStepMetaInterface.getAggregateType() ).thenReturn( types );
 
-    
-    
-    
     step = new WellCoveredStep(meta, stepDataInterface, 1, transMeta, trans);    
   }
   
@@ -78,9 +69,9 @@ public class WellCoveredStepTest {
   
   @Test
   public void testProcessRow() throws KettleException {
-    
+
     when(trans.isRunning()).thenReturn( true );
-    
+
     step.init( stepMetaInterface, stepDataInterface );
     step.setLogLevel( LogLevel.DEBUG );
     step.processRow( stepMockHelper.initStepMetaInterface, stepMockHelper.stepDataInterface);

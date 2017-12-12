@@ -47,5 +47,4 @@ public class WellCoveredStepStepAnalyzerTest {
     Set<Class<? extends BaseStepMeta>> steps = analyzer.getSupportedSteps();
     assertTrue( steps.contains( WellCoveredStepMeta.class ));
   }
-
 }
