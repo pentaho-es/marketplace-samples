@@ -33,26 +33,27 @@ import org.pentaho.di.trans.step.StepMetaInterface;
  * 
  */
 public class WellCoveredStep extends BaseStep implements StepInterface {
-  
-  private static Class<?> PKG = WellCoveredStepMeta.class; // for i18n purposes, needed by Translator2!!   $NON-NLS-1$
-  
+
+  private static Class<?> PKG = WellCoveredStepMeta.class; // for i18n purposes, needed by Translator2!! $NON-NLS-1$
+
   public WellCoveredStep( StepMeta stepMeta, StepDataInterface stepDataInterface, int copyNr, TransMeta transMeta,
-    Trans trans ) {
+      Trans trans ) {
     super( stepMeta, stepDataInterface, copyNr, transMeta, trans );
   }
-  
-  /**
-     * Initialize and do work where other steps need to wait for...
-     *
-     * @param stepMetaInterface
-     *          The metadata to work with
-     * @param stepDataInterface
-     *          The data to initialize
-     */
-    public boolean init( StepMetaInterface stepMetaInterface, StepDataInterface stepDataInterface ) {
-      return super.init( stepMetaInterface, stepDataInterface );
-    }
 
+  /**
+   * Initialize and do work where other steps need to wait for...
+   *
+   * @param stepMetaInterface
+   *          The metadata to work with
+   * @param stepDataInterface
+   *          The data to initialize
+   */
+  public boolean init( StepMetaInterface stepMetaInterface, StepDataInterface stepDataInterface ) {
+    return super.init( stepMetaInterface, stepDataInterface );
+  }
+
+  
   public boolean processRow( StepMetaInterface smi, StepDataInterface sdi ) throws KettleException {
     Object[] r = getRow(); // get row, set busy!
     if ( r == null ) {
@@ -67,7 +68,7 @@ public class WellCoveredStep extends BaseStep implements StepInterface {
       if ( log.isBasic() )
         logBasic( BaseMessages.getString( PKG, "WellCoveredStep.Log.LineNumber" ) + getLinesRead() );
     }
-      
+
     return true;
   }
 }

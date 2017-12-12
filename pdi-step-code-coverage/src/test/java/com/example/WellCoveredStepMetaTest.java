@@ -68,6 +68,7 @@ public class WellCoveredStepMetaTest {
 	
 	WellCoveredStepMeta meta;
 	
+	
 	@Before
 	public void before() {
 		MockitoAnnotations.initMocks(this);

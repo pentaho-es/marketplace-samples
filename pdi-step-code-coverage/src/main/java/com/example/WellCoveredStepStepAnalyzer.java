@@ -47,4 +47,5 @@ public class WellCoveredStepStepAnalyzer extends StepAnalyzer<WellCoveredStepMet
     supportedSteps.add( WellCoveredStepMeta.class );
     return supportedSteps;
   }
+  
 }
