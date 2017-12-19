@@ -30,30 +30,27 @@ import org.pentaho.di.trans.step.StepMetaInterface;
 
 /**
  * Describe your step plugin.
- * 
  */
 public class WellCoveredStep extends BaseStep implements StepInterface {
 
   private static Class<?> PKG = WellCoveredStepMeta.class; // for i18n purposes, needed by Translator2!! $NON-NLS-1$
 
   public WellCoveredStep( StepMeta stepMeta, StepDataInterface stepDataInterface, int copyNr, TransMeta transMeta,
-      Trans trans ) {
+                          Trans trans ) {
     super( stepMeta, stepDataInterface, copyNr, transMeta, trans );
   }
 
   /**
    * Initialize and do work where other steps need to wait for...
    *
-   * @param stepMetaInterface
-   *          The metadata to work with
-   * @param stepDataInterface
-   *          The data to initialize
+   * @param stepMetaInterface The metadata to work with
+   * @param stepDataInterface The data to initialize
    */
   public boolean init( StepMetaInterface stepMetaInterface, StepDataInterface stepDataInterface ) {
     return super.init( stepMetaInterface, stepDataInterface );
   }
 
-  
+
   public boolean processRow( StepMetaInterface smi, StepDataInterface sdi ) throws KettleException {
     Object[] r = getRow(); // get row, set busy!
     if ( r == null ) {
@@ -61,12 +58,13 @@ public class WellCoveredStep extends BaseStep implements StepInterface {
       setOutputDone();
       return false;
     }
-    
+
     putRow( getInputRowMeta(), r ); // copy row to possible alternate rowset(s).
 
     if ( checkFeedback( getLinesRead() ) ) {
-      if ( log.isBasic() )
+      if ( log.isBasic() ) {
         logBasic( BaseMessages.getString( PKG, "WellCoveredStep.Log.LineNumber" ) + getLinesRead() );
+      }
     }
 
     return true;
